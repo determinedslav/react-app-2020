@@ -6,7 +6,7 @@ class Home extends React.Component{
 
     render(){
         return <div>
-            <QuantityInput/>
+            <QuantityInput count={5}/>
         </div>
     }
 }
