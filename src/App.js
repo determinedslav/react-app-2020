@@ -1,10 +1,47 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
+import Home from './pages/Home.js';
+import Users from './pages/Users.js';
+import Profile from './pages/Profile.js';
+import Navbar from './components/Navbar.js'
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <Router>
+      <Navbar/>
+     <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/profile">Profile</Link>
+            </li>
+            <li>
+              <Link to="/users">Users</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+          <Route path="/users">
+            <Users />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
