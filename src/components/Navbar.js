@@ -7,6 +7,7 @@ import {
   NavItem,
   NavLink,
 } from 'reactstrap';
+import { NavLink as RRNavLink } from 'react-router-dom';
 
 const HeaderNavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,13 +21,13 @@ const HeaderNavBar = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/">Home</NavLink>
+              <NavLink tag={RRNavLink} exact to="/" activeClassName="active">Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/users">Users</NavLink>
+              <NavLink tag={RRNavLink} to="/users" activeClassName="active">Users</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/profile">Profile</NavLink>
+              <NavLink tag={RRNavLink} to="/profile" activeClassName="active">Profile</NavLink>
             </NavItem>
           </Nav>
         </Collapse>

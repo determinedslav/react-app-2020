@@ -3,41 +3,43 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 import Home from './pages/Home.js';
 import Users from './pages/Users.js';
 import Profile from './pages/Profile.js';
-import Navbar from './components/Navbar.js'
+import Navbar from './components/Navbar.js';
+
+const Layout = props => {
+  return (
+    <>
+      <Navbar></Navbar>
+      <div className = "container mt-5">
+        {props.children}
+      </div>
+    </>
+  )
+}
+
 function App() {
   return (
     <Router>
-      <Navbar/>
      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/profile">Profile</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
-        </nav>
-
         <Switch>
           <Route path="/" exact>
-            <Home />
+            <Layout>
+              <Home />
+            </Layout>
           </Route>
           <Route path="/profile">
-            <Profile />
+          <Layout>
+              <Profile />
+            </Layout>
           </Route>
           <Route path="/users">
-            <Users />
+           <Layout>
+              <Users />
+            </Layout>
           </Route>
         </Switch>
       </div>
