@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import QuantityInput from '../components/QuantityInput';
+import setActionCount from '../redux/actions/counter';
 
 class Home extends React.Component{
 
@@ -67,13 +68,6 @@ class Home extends React.Component{
 const mapStateToProps = state => {
     return {
         counter: state.counter
-    }
-}
-
-const setActionCount = count => {
-    return {
-        type: "INCREMENT_COUNT",
-        payload: count,
     }
 }
 

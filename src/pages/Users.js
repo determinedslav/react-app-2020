@@ -14,8 +14,9 @@ class User extends React.Component{
 
     render(){
         return <div>
-           <ul className="list-group">
-           {this.props.movies.map(movie =>{
+            <h1>{this.props.counter}</h1>
+            <ul className="list-group">
+            {this.props.movies.map(movie =>{
                return <li key={movie.id} className="list-group-item">{movie.title}</li>
            })}
            </ul>
