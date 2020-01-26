@@ -19,7 +19,18 @@ const movies = function(movies = [], action) {
     }
 }
 
+const title = function(title = "some title", action) {
+    switch(action.type){
+        case "CHANGE_TITLE" : {
+            return action.payload;
+        }
+        default : 
+            return title;
+    }
+}
+
 export default combineReducers({
     counterOne : counter,
     movies,
+    title,
 })
