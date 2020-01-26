@@ -4,7 +4,8 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
 import {Provider} from 'react-redux'
 
 
@@ -14,7 +15,7 @@ import Profile from './pages/Profile.js';
 import Navbar from './components/Navbar.js';
 import reducers from './redux/index.js';
 
-const store = createStore(reducers);
+const store = createStore(reducers, applyMiddleware(thunk));
 
 const Layout = props => {
   return (
